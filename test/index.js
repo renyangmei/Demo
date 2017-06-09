@@ -7,15 +7,20 @@ var app=angular.module("myApp",[]);
         }
     });
 
-app.controller("ctrl",["$scope",function ($scope) {
-    $scope.username="tom";
-}])
-
     app.component("pageSlide",{
         templateUrl:"pageslide.html"
     });
 
+    app.component("pageContent",{
+        templateUrl:"pagecontent.html"
+    });
+
     app.component("pageFooter",{
         templateUrl:"pfooter.html"
-    })
+    });
+    app.controller("ctrl",["$scope",function ($scope) {
+        $scope.username="tom";
+        $scope.name="anna"
+    }])
+
 
