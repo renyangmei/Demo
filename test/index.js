@@ -6,6 +6,10 @@ var app=angular.module("myApp",[]);
         }
     });
 
+app.controller("ctrl",["$scope",function ($scope) {
+    $scope.username="tom";
+}])
+
     app.component("pageSlide",{
         template:"<h2>我是侧边栏</h2>"
     });
