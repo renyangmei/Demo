@@ -1,48 +1,14 @@
-<div class="con-pageContent">
+<div class="con-pageContent" >
     <div class="mark">
         <h1 class="bg">content</h1>
     </div>
-
-    <div>
+    <div ng-repeat="stu in $ctrl.students">
+        <!--将绑定到控制器上的数据循环输出到页面上-->
         <p>name:{{stu.name}}</p>
         <p>age:{{stu.age}}</p>
-
     </div>
-    <div class="face" ng-repeat="stu in students">
-        <input type="text" ng-model="name">
-        <div>姓名：{{name}}</div>
-    </div>
+    <!--<div class="face">-->
+        <!--<input type="text" ng-model="name">-->
+        <!--<div>姓名：{{name}}</div>-->
+    <!--</div>-->
 </div>
-
-<style>
-    .con-pageContent{
-        width:80%;
-        height:500px;
-        float: left;
-        overflow: hidden;
-        position: relative;
-    }
-    .con-pageContent:after{
-        content: '';
-        clear: both;
-    }
-    .mark{
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: auto;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        text-align: center;
-        line-height:500px;
-        color: #ddd;
-        font-weight:bold;
-    }
-    .face{
-        position: absolute;
-        z-index: 2;
-        left: 0;
-        top: 0;
-    }
-</style>

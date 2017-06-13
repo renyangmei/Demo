@@ -6,13 +6,25 @@ var app=angular.module("myApp",[]);
             $scope.username="小安";
         }
     });
-
     app.component("pageSlide",{
         templateUrl:"pageslide.html"
     });
-
     app.component("pageContent",{
-        templateUrl:"pagecontent.html"
+        templateUrl:"pagecontent.html",
+        bindings:{
+            students:"="
+        },
+        controller:['$scope',function($scope){
+            var vm = this; //指向控制器,
+            // console.log(vm);
+            vm.$onInit = function(){ //控制器初始化的方法
+                console.log($scope);
+            }
+            // $scope.$watch("$ctrl.students",function (newVal) {
+            //     $scope;
+            //     console.log(newVal);
+            // })
+        }]
     });
 
     app.component("pageFooter",{
@@ -20,15 +32,15 @@ var app=angular.module("myApp",[]);
     });
     app.controller("ctrl",["$scope","$http",function ($scope,$http) {
         $scope.students=[];
-        $http.get('data.txt')
+        $http({url:'data/data.json'})
             .then(function (data, status, headers, config) {
-                $scope.students = data.students;
+                $scope.students = data.data.students;
                     console.log(data);
-                    console.log(data.students);
+                    console.log(data.data.students);
                     console.log($scope.students);
                 })
-        $scope.username="tom";
-        $scope.name="anna"
+        // $scope.username="tom";
+        // $scope.name="anna"
     }])
 
 
