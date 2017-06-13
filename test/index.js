@@ -1,16 +1,16 @@
 var app=angular.module("myApp",[]);
     app.component("pageHeader",{
         // template:"<h2>我是标题，尊敬的{{username}}用户，欢迎访问本系统</h2>",
-        templateUrl:"pageheader.html",
+        templateUrl:"component/pageheader.html",
         controller:function ($scope) {
             $scope.username="小安";
         }
     });
     app.component("pageSlide",{
-        templateUrl:"pageslide.html"
+        templateUrl:"component/pageslide.html"
     });
     app.component("pageContent",{
-        templateUrl:"pagecontent.html",
+        templateUrl:"component/pagecontent.html",
         bindings:{
             students:"="
         },
@@ -28,8 +28,9 @@ var app=angular.module("myApp",[]);
     });
 
     app.component("pageFooter",{
-        templateUrl:"pfooter.html"
+        templateUrl:"component/pfooter.html"
     });
+    /*取出数据*/
     app.controller("ctrl",["$scope","$http",function ($scope,$http) {
         $scope.students=[];
         $http({url:'data/data.json'})
@@ -39,8 +40,6 @@ var app=angular.module("myApp",[]);
                     console.log(data.data.students);
                     console.log($scope.students);
                 })
-        // $scope.username="tom";
-        // $scope.name="anna"
     }])
 
 
