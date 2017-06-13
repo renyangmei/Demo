@@ -32,9 +32,10 @@ var app=angular.module("myApp",[]);
     });
     /*取出数据*/
     app.controller("ctrl",["$scope","$http",function ($scope,$http) {
-        $scope.students=[];
-        $http({url:'data/data.json'})
-            .then(function (data, status, headers, config) {
+        // $scope.students=[];
+        $http({
+            url:'data/data.json'
+        }).then(function (data, status, headers, config) {
                 $scope.students = data.data.students;
                     console.log(data);
                     console.log(data.data.students);
